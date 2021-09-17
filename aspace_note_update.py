@@ -14,7 +14,7 @@ starttime = datetime.now()
 config = configparser.ConfigParser()
 config.read('local_settings.cfg')
 
-#Logging configuration
+#Logging setup
 logging.basicConfig(filename='script_note_edits.txt', format='%(asctime)s %(message)s',
                     filemode='w')
 logger=logging.getLogger()
@@ -111,7 +111,7 @@ def replaceNotesExact(headers):
         except:
             pass
 
-#asks user to input note content
+#User input
 identifier = promptForIdentifier()
 objectlevel = input('Enter archival object level (e.g., series, file, otherlevel): ')
 notetype = input('Enter the type of note (use EAD note types, e.g. accessrestrict, odd): ')
@@ -138,6 +138,7 @@ for aoId in aoIds:
         elif matchtype == 'partial':
             replaceNotesPartial(headers)
 
+#Logging
 logger.info("Script finished")
 job_time = (datetime.now() - starttime)
 logger.info(f' Job time: {job_time}')
