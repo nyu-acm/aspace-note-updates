@@ -16,8 +16,7 @@ from datetime import datetime
 starttime = datetime.now()
 
 config = configparser.ConfigParser()
-#config.read('local_settings.cfg')
-config.read('dev_settings.cfg')
+config.read('local_settings.cfg')
 
 #Logging configuration
 logging.basicConfig(filename='script_note_edits.txt', format='%(asctime)s %(message)s',
