@@ -84,7 +84,7 @@ def deleteNotesExact(headers):
             pass
 
 def replaceNotesPartial(headers):
-# Replaces notes that includes input notecontent
+# Replaces notes that include input notecontent
     notes = ao["notes"]
     for index, n in enumerate(notes):
         try:
