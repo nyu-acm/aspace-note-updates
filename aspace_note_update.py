@@ -63,7 +63,7 @@ def deleteNotesPartial(headers):
                     if notecontent in subnote["content"]:
                         del notes[index]
                         post = requests.post('{baseURL}'.format(**dictionary) + str(aoId), headers=headers, data=json.dumps(ao))
-                        logger.info(f'Deleted note with "{notecontent}" content in "{object_uri}" in resource number "{identifier}". The original note content was -- "{subnote["content"]}".')
+                        logger.info(f'Deleted note with "{notecontent}" content in "{object_uri}" in resource number "{identifier}". The original note content was "{subnote["content"]}".')
 
         except:
             pass
@@ -78,7 +78,7 @@ def deleteNotesExact(headers):
                     if notecontent == subnote["content"]:
                         del notes[index]
                         post = requests.post('{baseURL}'.format(**dictionary) + str(aoId), headers=headers, data=json.dumps(ao))
-                        logger.info(f'Deleted note with "{notecontent}" content in "{object_uri}" in resource number "{identifier}". The original note content was -- "{subnote["content"]}".')
+                        logger.info(f'Deleted note with "{notecontent}" content in "{object_uri}" in resource number "{identifier}". The original note content was "{subnote["content"]}".')
 
         except:
             pass
@@ -93,7 +93,7 @@ def replaceNotesPartial(headers):
                     if notecontent in subnote["content"]:
                         subnote["content"] = replacecontent
                         post = requests.post('{baseURL}'.format(**dictionary) + str(aoId), headers=headers, data=json.dumps(ao))
-                        logger.info(f'Replaced previous note "{notecontent}" with "{replacecontent}" in "{object_uri}" in resource number "{identifier}". The original note content was -- "{subnote["content"]}".')
+                        logger.info(f'Replaced previous note "{notecontent}" with "{replacecontent}" in "{object_uri}" in resource number "{identifier}". The original note content was "{subnote["content"]}".')
         except:
             pass
 
@@ -107,7 +107,7 @@ def replaceNotesExact(headers):
                     if notecontent == subnote["content"]:
                         subnote["content"] = replacecontent
                         post = requests.post('{baseURL}'.format(**dictionary) + str(aoId), headers=headers, data=json.dumps(ao))
-                        logger.info(f'Replaced previous note "{notecontent}" with "{replacecontent}" in "{object_uri}" in resource number "{identifier}". The original note content was -- "{subnote["content"]}".')
+                        logger.info(f'Replaced previous note "{notecontent}" with "{replacecontent}" in "{object_uri}" in resource number "{identifier}". The original note content was "{subnote["content"]}".')
         except:
             pass
 
