@@ -81,7 +81,7 @@ def deleteNotesExact(headers):
         try:
             if n["jsonmodel_type"] == "note_singlepart":
                 if n["type"] == notetype:
-                    for content == n["content"]:
+                    if content == n["content"]:
                         del notes[index]
                         post = requests.post('{baseURL}'.format(**dictionary) + str(aoId), headers=headers, data=json.dumps(ao))
                         logger.info(f'Deleted note with "{notecontent}" content in "{object_uri}" in resource number "{identifier}". The original note content was "{n["content"]}".')
