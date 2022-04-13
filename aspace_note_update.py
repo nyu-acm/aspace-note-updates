@@ -58,6 +58,12 @@ def deleteNotesPartial(headers):
     notes = ao["notes"]
     for index, n in enumerate(notes):
         try:
+            if n["jsonmodel_type"] == "note_singlepart":
+                if n["type"] == notetype:
+                    for content in n["content"]:
+                        del notes[index]
+                        post = requests.post('{baseURL}'.format(**dictionary) + str(aoId), headers=headers, data=json.dumps(ao))
+                        logger.info(f'Deleted note with "{notecontent}" content in "{object_uri}" in resource number "{identifier}". The original note content was "{n["content"]}".')
             if n["type"] == notetype:
                 for subnote in n["subnotes"]:
                     if notecontent in subnote["content"]:
@@ -73,6 +79,12 @@ def deleteNotesExact(headers):
     notes = ao["notes"]
     for index, n in enumerate(notes):
         try:
+            if n["jsonmodel_type"] == "note_singlepart":
+                if n["type"] == notetype:
+                    for content == n["content"]:
+                        del notes[index]
+                        post = requests.post('{baseURL}'.format(**dictionary) + str(aoId), headers=headers, data=json.dumps(ao))
+                        logger.info(f'Deleted note with "{notecontent}" content in "{object_uri}" in resource number "{identifier}". The original note content was "{n["content"]}".')
             if n["type"] == notetype:
                 for subnote in n["subnotes"]:
                     if notecontent == subnote["content"]:
